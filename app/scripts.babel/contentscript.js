@@ -103,7 +103,7 @@ setInterval(() => {
                         const isCompleted = !!e.querySelector('.TaskRowCompletionStatus-checkbox--complete')
                         const subtaskTitleElement = e.querySelector('.AutogrowTextarea-shadow')
                         if(subtaskTitleElement){
-                            const sp_matched = subtaskTitleElement.textContent.match(/^\((\d+(?:\.\d+)?)\)/)
+                            const sp_matched = subtaskTitleElement.textContent.match(/^\[(\d+(?:\.\d+)?)\]/)
                             if(sp_matched){
                                 if(isCompleted) {
                                     subtasksCompletedStoryPoint += Number(sp_matched[1])
@@ -194,7 +194,7 @@ setInterval(() => {
                 let columnTotalNotCompletedStoryPoint = 0, columnTotalCompletedStoryPoint = 0;
                 Array.prototype.forEach.call(boardCardNames, (e) => {
                     const isCompleted = e.parentElement.parentElement.getElementsByClassName('TaskRowCompletionStatus-taskCompletionIcon--complete').length !== 0;
-                    const sp_matched = e.textContent.match(/^\((\d+(?:\.\d+)?)\)/) // SP   例: (10) タスク => 10
+                    const sp_matched = e.textContent.match(/^\[(\d+(?:\.\d+)?)\]/) // SP   例: (10) タスク => 10
                     const sp_subtask_completed_matched = e.textContent.match(/\[(\d+(?:\.\d+)?)\]$/) // 部分完了タスクSP   例: (10) タスク [5]  => 5/5
                     if(sp_matched){
                         if(isCompleted) {
@@ -367,7 +367,7 @@ setInterval(() => {
                     const titleElement = nextRow.querySelector('.SpreadsheetTaskName-input')
                     const title = titleElement.textContent
                     const isCompleted = nextRow.getElementsByClassName('TaskRowCompletionStatus-taskCompletionIcon--complete').length !== 0;
-                    const sp_matched = title.match(/^\((\d+(?:\.\d+)?)\)/) // SP   例: (10) タスク => 10
+                    const sp_matched = title.match(/^\[(\d+(?:\.\d+)?)\]/) // SP   例: (10) タスク => 10
                     const sp_subtask_completed_matched = title.match(/\[(\d+(?:\.\d+)?)\]$/) // 部分完了タスクSP   例: (10) タスク [5]  => 5/5
                     if(sp_matched){
                         if(isCompleted) {

@@ -1,7 +1,7 @@
 'use strict';
 
 // 定数
-const SP_BADGES = ['?','0','0.5','1','2','3','5','8','13','21']
+const SP_BADGES = ['0.25','0.5','1','2','4','8']
 const badgeStyle = {
     background: '#3498db',
     borderRadius: '12px',
@@ -56,7 +56,7 @@ setInterval(() => {
                 })
                 badgeElement.addEventListener('click', function(e){
                     titleTextArea.focus()
-                    titleTextArea.value = '(' + e.target.textContent + ') ' + titleTextArea.value.replace(/^\(.+\) /, '')
+                    titleTextArea.value = '[' + e.target.textContent + '] ' + titleTextArea.value.replace(/^\[.+\] /, '')
                     var evt = document.createEvent('KeyboardEvent');
                     evt.initEvent('input', true, false);
                     // adding this created a magic and passes it as if keypressed
@@ -76,7 +76,7 @@ setInterval(() => {
 
                 badgeElement.addEventListener('click', function(e){
                     titleTextArea.focus()
-                    titleTextArea.value = titleTextArea.value.replace(/^\(.+\) /, '').replace(/ \[.+\]/, '')
+                    titleTextArea.value = titleTextArea.value.replace(/^\[.+\] /, '')
                     var evt = document.createEvent('KeyboardEvent');
                     evt.initEvent('input', true, false);
                     // adding this created a magic and passes it as if keypressed

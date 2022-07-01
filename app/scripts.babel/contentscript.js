@@ -114,7 +114,7 @@ setInterval(() => {
                     })
                     const titlePrefix = (() => {
                         if(subtasksNotCompletedStoryPoint){
-                            return '(' + subtasksNotCompletedStoryPoint + ') '
+                            return '[' + subtasksNotCompletedStoryPoint + '] '
                         }
                         return ''
                     })()
@@ -128,7 +128,7 @@ setInterval(() => {
 
                     // 編集
                     titleTextArea.focus()
-                    titleTextArea.value = titlePrefix + titleTextArea.value.replace(/^\(.+\) /, '').replace(/ \[.+\]/, '') + titlePostfix
+                    titleTextArea.value = titlePrefix + titleTextArea.value + titlePostfix
                     var evt = document.createEvent('KeyboardEvent');
                     evt.initEvent('input', true, false);
                     // adding this created a magic and passes it as if keypressed
